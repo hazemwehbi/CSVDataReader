@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'hazem.wehbi/csv-data-reader',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '2200bb9ffbe807d8c84377607f5546bea6d9cdbc',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'amphp/amp' => array(
             'pretty_version' => 'v2.6.2',
             'version' => '2.6.2.0',
@@ -135,6 +126,15 @@
             'install_path' => __DIR__ . '/../doctrine/instantiator',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'hazem.wehbi/csv-data-reader' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '2200bb9ffbe807d8c84377607f5546bea6d9cdbc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'humbug/box' => array(
             'pretty_version' => '3.14.1',
