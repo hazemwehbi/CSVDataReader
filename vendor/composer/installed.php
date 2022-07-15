@@ -3,7 +3,7 @@
         'name' => 'hazem.wehbi/csv-data-reader',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '7e0aef54147fc85a1af06b184fa9fa13d2d2c134',
+        'reference' => '29a92bfdefda2d0b4b5714b1000d910d725324eb',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -130,7 +130,7 @@
         'hazem.wehbi/csv-data-reader' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '7e0aef54147fc85a1af06b184fa9fa13d2d2c134',
+            'reference' => '29a92bfdefda2d0b4b5714b1000d910d725324eb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
