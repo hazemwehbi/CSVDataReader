@@ -1,4 +1,3 @@
-
 name: PHP Composer
 
 on:
@@ -16,52 +15,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      # - name: Validate composer.json and composer.lock
-      #  run: composer validate --strict
-      - name: build an executable phar
-        run: composer box
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
 
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
 
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-      # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-      # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-        
-      - name: Install App dependencies 
-        run: composer install
+    - name: Install App dependencies 
+      run: composer install
        
-      - name: build an executable phar
-        run: composer box
+    - name: build an executable phar
+      run: composer box
         
-      - name: Run test suite
-        run: composer test
+    - name: Run test suite
+      run: composer test
 
-      - name: phpunit test
-        run: php ./vendor/bin/phpunit
+    - name: phpunit test
+      run: php ./vendor/bin/phpunit
 
-      - name: PHPStan scans our whole codebase and looks for both obvious & tricky bugs
-        run: php -d memory_limit=4G ./vendor/bin/phpstan analyse -c phpstan.neon
+    - name: PHPStan scans our whole codebase and looks for both obvious & tricky bugs
+      run: php -d memory_limit=4G ./vendor/bin/phpstan analyse -c phpstan.neon
         
-      - name: Create MySQL image
-        run: docker build -t testdb .
+    - name: Create MySQL image
+      run: docker build -t testdb .
 
-      - name: Run MySQL
-        run: docker run --detach --name=testdb --publish 3306:3306 testdb -e MYSQL_ROOT_PASSWORD=admin
+    - name: Run MySQL
+      run: docker run --detach --name=testdb --publish 3306:3306 testdb -e MYSQL_ROOT_PASSWORD=admin
 
-      - name: docker start mysql
-        run: docker start testdb
+    - name: docker start mysql
+      run: docker start testdb
         
-      - name: Upload data
-        run: php user_upload.php --file ./data/users.csv -h 127.0.0.1 -d testdb -u user -p password
+    - name: Upload data
+      run: php user_upload.php --file ./data/users.csv -h 127.0.0.1 -d testdb -u user -p password
