@@ -1,4 +1,5 @@
 {
+    "name": "CSV-data-uploader",
     "description": "CSV data uploader",
     "autoload": {
         "psr-4": {
