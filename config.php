@@ -1,7 +1,7 @@
 <?php
 return [
     // A table name to hold the imported data
-    'importTableName' => 'customers',
+    'importTableName' => 'users',
 
     // A CSV separator
     'csvSeparator' => ',',
