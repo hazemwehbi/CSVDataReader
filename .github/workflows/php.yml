@@ -30,7 +30,10 @@ jobs:
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
-
+    
+    - name: Directory Path 
+      run: pwd
+      
     - name: Install App dependencies 
       run: composer install
        
