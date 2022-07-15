@@ -1,6 +1,1 @@
 .idea/
-vendor/
-build/
-composer.lock
-*.log
-.phpunit.result.cache

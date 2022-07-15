@@ -1,0 +1,1 @@
+{"version":1,"defects":{"foobarTest::testFoobar":3},"times":{"TransformerTest::testLower":0.002,"TransformerTest::testUcfirst":0,"ValidatorTest::testEmailValid":0,"ValidatorTest::testEmailInvalid":0,"ValidatorTest::testStringTooShort":0,"ValidatorTest::testStringTooLong":0,"foobarTest::testFoobar":0}}
