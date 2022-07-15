@@ -1,5 +1,5 @@
 {
-    "name": "hazemwehbi/CSVdatauploader",
+    "name": "hazemwehbi/CSVDataReader",
     "description": "CSV data uploader",
     "autoload": {
         "psr-4": {
