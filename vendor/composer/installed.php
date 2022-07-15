@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'hazem.wehbi/csv-data-reader',
+        'name' => 'hazemwehbi/csv-data-reader',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '29a92bfdefda2d0b4b5714b1000d910d725324eb',
+        'reference' => 'a215c7b620078ce42886d1e6f5c02249c970c0c3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -127,10 +127,10 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'hazem.wehbi/csv-data-reader' => array(
+        'hazemwehbi/csv-data-reader' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '29a92bfdefda2d0b4b5714b1000d910d725324eb',
+            'reference' => 'a215c7b620078ce42886d1e6f5c02249c970c0c3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
