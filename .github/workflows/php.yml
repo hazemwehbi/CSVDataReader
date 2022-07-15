@@ -58,5 +58,5 @@ jobs:
     - name: docker start mysql
       run: docker start testdb
         
-    - name: Upload data
-      run: php user_upload.php --file ./data/users.csv -h 127.0.0.1 -d testdb -u user -p password
+    - name: create Data Table
+      run: docker run -it --rm --name testdb -v "$PWD":/home/runner/work/csv-data-reader/csv-data-reader -w /home/runner/work/csv-data-reader/csv-data-reader php:7.4-cli php user_upload.php --create_table -h 127.0.0.1 -d customer -u user -p password
