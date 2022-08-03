@@ -13,9 +13,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 📂 Sync files
-        uses: ./
+        uses: hazemwehbi/csv-data-reader@main
         with:
           server: ${{ secrets.SERVER}}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
-          protocol: ftps
