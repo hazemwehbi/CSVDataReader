@@ -1,65 +1,21 @@
-name: PHP Composer
+name: FTPS Test
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+    branches: [master]
 
 jobs:
-  build:
-
+  deploy:
+    name: 🚀 Deploy website every commit
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-    
-    - name: Directory Path 
-      run: pwd
-      
-    - name: Install App dependencies 
-      run: composer install
-       
-    - name: build an executable phar
-      run: composer box
-        
-    - name: Run test suite
-      run: composer test
-
-    - name: phpunit test
-      run: php ./vendor/bin/phpunit
-
-    - name: PHPStan scans our whole codebase and looks for both obvious & tricky bugs
-      run: php -d memory_limit=4G ./vendor/bin/phpstan analyse -c phpstan.neon
-        
-    - name: Create MySQL image
-      run: docker build -t testdb .
-
-    - name: Run MySQL
-      run: docker run --detach --name=testdb --publish 3306:3306 testdb -e MYSQL_ROOT_PASSWORD=admin
-
-    - name: docker start mysql
-      run: docker start testdb
-        
-    - name: create Data Table
-      run: php user_upload.php --create_table -h 127.0.0.1 -d customer -u user -p password
-      
-    - name: Upload data
-      run: php user_upload.php --file ./data/users.csv -h 127.0.0.1 -d testdb -u user -p password
+      - name: 📂 Sync files
+        uses: ./
+        with:
+          server: ${{ secrets.SERVER}}
+          username: ${{ secrets.USERNAME}}
+          password: ${{ secrets.PASSWORD}}
+          protocol: ftps
